@@ -367,6 +367,8 @@
 }
 
 .modal[open] {
+  display: grid;
+  gap: 30px;
   background-color: var(--bg-fon);
   color: var(--accent-color);
   font-family: 'Press Start 2P', Georgia, serif;
@@ -375,11 +377,6 @@
   max-block-size: 195px;
   padding: 30px 40px;
   border: 2px solid var(--accent-color);
-}
-
-.modal__form {
-  display: grid;
-  gap: 30px;
 }
 
 .modal::backdrop {
@@ -392,7 +389,7 @@
   gap: 20px;
 }
 
-.modal__title {  
+.modal__title {
   font-size: 14px;
   line-height: 21px;
 }

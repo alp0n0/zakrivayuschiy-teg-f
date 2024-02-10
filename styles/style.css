@@ -131,7 +131,7 @@
 
 .card__header {
   font-size: 18px;
-  font-variation-settings: var(--wgth-title);
+  font-variation-settings: 'wght' var(--wgth-title);
   line-height: 21.78px;
   padding: 4px 10px 6px;
   border-bottom: 2px solid var(--accent-color);

@@ -18,7 +18,7 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--font-main), Aria, sans-serif;
-  font-variation-settings: var(--wgth-text);
+  font-variation-settings: 'wght' var(--wgth-text);
   background-image: var(--gradient-fon);
   background-color: var(--bg-fon);
   color: var(--accent-color);
@@ -69,7 +69,7 @@
 
 .theme-menu__button {
   text-transform: uppercase;
-  transition: none;  
+  transition: none;
   padding-inline-start: 20px;
 }
 
@@ -91,14 +91,14 @@
   content: '';
   display: block;
   transform: scaleX(0);
-  outline: 1px solid var(--accent-color);  
+  outline: 1px solid var(--accent-color);
   transition: transform 0.3s ease;
   transform-origin: 0 0;
 }
 
 .theme-menu__button:focus-visible::after {
   transform: scaleX(1);
-  outline: 1px solid var(--accent-color);  
+  outline: 1px solid var(--accent-color);
   transition: transform 0.3s ease;
   transform-origin: 0 0;
 } 
@@ -306,7 +306,7 @@
   border: 2px solid var(--accent-color);
   align-items: center;
   text-decoration: none;
-  font-family: 'Press Start 2P', Georgia, serif;;
+  font-family: 'Press Start 2P', Georgia, serif;
   font-size: 14px;
   box-shadow: 0 0 transparent;
   transition: box-shadow 0.3s ease;
@@ -360,23 +360,26 @@
 }
 
 .button-save__text {
-  font-family: 'Press Start 2P', Georgia, serif;;
+  font-family: 'Press Start 2P', Georgia, serif;
   line-height: 12.6px;
   align-self: center;
   justify-self: center;
 }
 
 .modal[open] {
-  display: grid;
-  gap: 30px;
   background-color: var(--bg-fon);
   color: var(--accent-color);
-  font-family: 'Press Start 2P', Georgia, serif;;
+  font-family: 'Press Start 2P', Georgia, serif;
   text-transform: uppercase;
   max-inline-size: 341px;
   max-block-size: 195px;
   padding: 30px 40px;
   border: 2px solid var(--accent-color);
+}
+
+.modal__form {
+  display: grid;
+  gap: 30px;
 }
 
 .modal::backdrop {
@@ -407,7 +410,7 @@
     block-size: 55px;
     inline-size: 335px;
     margin: 50px auto 100px;
-    padding: 18.5px 21px 18.5px 19px;  
+    padding: 18.5px 21px 18.5px 19px;
   }
 
   .button__icon-floppy {

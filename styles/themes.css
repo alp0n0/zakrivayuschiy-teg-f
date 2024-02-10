@@ -80,7 +80,7 @@ html.theme-dark {
         linear-gradient(#e7e7e7, #e7e7e7 0.01%, #1a1a1a);
 }
 
-html.theme-light{
+html.theme-light {
     --font-main: 'Inter-Variable';
     --bg-fon: #FFFFFF;
     --bg-like: #fff;

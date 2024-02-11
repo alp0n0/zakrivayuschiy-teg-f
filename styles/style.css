@@ -17,20 +17,21 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-family: var(--font-main), Aria, sans-serif;
+  font-family: 'Inter-Variable', Aria, sans-serif;
   font-variation-settings: 'wght' var(--wgth-text);
   background-image: var(--gradient-fon);
+  background-attachment: fixed;
   background-color: var(--bg-fon);
   color: var(--accent-color);
   background-size: cover;
-  }
+}
 
 .header {
   margin: 100px auto;
   block-size: clamp(20.4375rem, 19.5352rem + 3.8498vw, 23rem);
   max-inline-size: 700px;
   background-color: var(--bg-header);
-  font-family: 'Press Start 2P', Georgia, serif;
+  font-family: "Press Start 2P", Georgia, serif;
   border: 2px solid var(--accent-color);
   padding-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
 }
@@ -64,7 +65,6 @@
 
 .theme-menu__item {
   position: relative;
-  
 }
 
 .theme-menu__button {
@@ -76,10 +76,15 @@
 .theme-menu__button:disabled::before {
   content: "▶";
   position: absolute;
+  top: 0;
+  left: 0;
   animation: arrow 0.5s infinite ease-in-out alternate-reverse;
 }
 
-.theme-menu__button:hover, .theme-menu__button:focus-visible, .theme-menu__button:disabled {
+.theme-menu__button:hover,
+.theme-menu__button:focus-visible,
+.theme-menu__button:focus,
+.theme-menu__button:disabled {
   opacity: 0.6;
 }
 
@@ -88,7 +93,7 @@
 }
 
 .theme-menu__button::after {
-  content: '';
+  content: "";
   display: block;
   transform: scaleX(0);
   outline: 1px solid var(--accent-color);
@@ -101,7 +106,7 @@
   outline: 1px solid var(--accent-color);
   transition: transform 0.3s ease;
   transform-origin: 0 0;
-} 
+}
 
 .theme-menu__button:disabled {
   pointer-events: none;
@@ -140,10 +145,12 @@
 .card__image {
   max-inline-size: 700px;
   position: relative;
+  outline: 2px solid currentColor;
 }
 
 .card__image-foto {
   inline-size: 100%;
+  block-size: 100%;
   object-fit: cover;
   object-position: center;
 }
@@ -184,37 +191,34 @@
   position: absolute;
   top: 25px;
   right: 13px;
-  font-family: 'Press Start 2P', Georgia, serif;
+  font-family: "Press Start 2P", Georgia, serif;
   font-size: 14px;
   line-height: 14px;
   mix-blend-mode: hard-light;
   opacity: 50%;
-  text-shadow:   
-  -1px 0 var(--bg-fon), 
-  0 1px var(--bg-fon), 
-  1px 0 var(--bg-fon), 
-  0 -1px var(--bg-fon);
+  text-shadow: -1px 0 var(--bg-fon), 0 1px var(--bg-fon), 1px 0 var(--bg-fon),
+    0 -1px var(--bg-fon);
 }
 
-@supports((text-stroke: 1px var(--bg-fon)) or (-webkit-text-stroke: 1px var(--bg-fon))) {
+@supports (
+  (text-stroke: 1px var(--bg-fon)) or (-webkit-text-stroke: 1px var(--bg-fon))
+) {
   .card__image-leibol {
-      -webkit-text-stroke: 1px var(--bg-fon);
-      text-stroke: 1px var(--bg-fon);
-      text-shadow: none;
+    -webkit-text-stroke: 1px var(--bg-fon);
+    text-stroke: 1px var(--bg-fon);
+    text-shadow: none;
   }
-} 
+}
 
 .card__text {
   display: grid;
   gap: 27px;
   padding: 25px 26px 25px 25px;
-  margin-top: -2px;
 }
 
 .card__text-paragraph {
   font-size: 18px;
   line-height: 21px;
-  font-weight: 400;
 }
 
 .card__button {
@@ -223,65 +227,82 @@
   gap: 7px;
   justify-self: flex-end;
   padding: 0 25px 25px 0;
-
 }
 
 .card__icon-button {
-  outline: none;
   inline-size: 39px;
-  block-size: 36px;
+  block-size: 38px;
+  align-self: center;
+  outline: none;
+  transition: outline 0.3s ease;
+}
+
+.card__icon-button:focus {
+  outline: none;
 }
 
 .card__icon-button:focus-visible {
   outline: 2px solid var(--accent-color);
   transition: outline 0.3s ease;
-} 
+}
+
+/* Сердце */
+
+.card__icon-button .contour {
+  transition: fill 0.1s;
+}
 
 .card__icon-button .core {
   transition: fill 0.3s 0.03s;
-}
-
-.card__icon-button:hover .core {
-  fill: var(--accent-color);
-  transition: fill 0.3s linear;
 }
 
 .card__icon-button .main-body {
   transition: fill 0.3s;
 }
 
-.card__icon-button .contour {
-  transition: fill 0.1s linear;
+.like-icon .sparks {
+  opacity: 0;
+}
+
+/* Сердце Hover */
+
+.card__icon-button:hover .core {
+  fill: var(--accent-color);
+  transition: fill 0.3s;
 }
 
 .card__icon-button:hover .main-body {
   fill: var(--accent-color);
-  transition: fill 0.3s 0.05s linear;
+  transition: fill 0.3s 0.05s;
 }
+
+/* Сердце Active */
 
 .card__icon-button:active .core {
   fill: var(--main-color-heart);
-  transition: fill 0.3s linear;
-} 
+  transition: fill 0.3s;
+}
 
 .card__icon-button:active .main-body {
   fill: var(--main-color-heart);
-  transition: fill 0.3s 0.05s linear;
+  transition: fill 0.3s 0.05s;
 }
 
-.like-icon.is-liked .contour {
-  fill: var(--main-color-heart);
-  transition: fill linear;
-}
+/* Сердце Клик */
 
 .like-icon.is-liked .core {
   fill: var(--main-color-heart);
-  transition: fill 0.3s linear;
+  transition: fill 0.3s;
 }
 
 .like-icon.is-liked .main-body {
   fill: var(--main-color-heart);
-  transition: fill 0.3s 0.06s linear;
+  transition: fill 0.3s 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--main-color-heart);
+  transition: fill 0.3s 0.06s;
 }
 
 .like-icon.is-liked .heart {
@@ -290,11 +311,7 @@
 }
 
 .like-icon.is-liked .sparks {
-  animation: spark 0.3s 0.3s ease-in reverse;
-}
-
-.like-icon .sparks {
-  opacity: 0;
+  animation: spark 0.3s 1 0.3s ease-in reverse;
 }
 
 .card__like-button {
@@ -303,10 +320,10 @@
   overflow: hidden;
   inline-size: 130px;
   block-size: 38px;
-  border: 2px solid var(--accent-color);
+  outline: 2px solid var(--accent-color);
   align-items: center;
   text-decoration: none;
-  font-family: 'Press Start 2P', Georgia, serif;
+  font-family: "Press Start 2P", Georgia, serif;
   font-size: 14px;
   box-shadow: 0 0 transparent;
   transition: box-shadow 0.3s ease;
@@ -314,25 +331,39 @@
 
 .card__like-button:focus {
   outline: none;
+  box-shadow: none;
 }
 
 .card__like-button:focus-visible {
-  outline: none;
-  box-shadow: 2px 2px var(--accent-color);
+  box-shadow: 4px 4px var(--accent-color);
   transition: box-shadow 0.3s ease;
 }
 
 .card__like-button::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-color: var(--bg-like);
   mix-blend-mode: difference;
   translate: -100% 0%;
-} 
+}
 
 .card__like-button:hover::before {
   animation: move 0.5s ease-in-out forwards;
+}
+
+.button__text {
+  font-family: "Press Start 2P", Georgia, serif;
+  line-height: 12.6px;
+  align-self: center;
+  justify-self: center;
+}
+
+.card__like-button:hover .button__text {
+  position: relative;
+  z-index: 10;
+  color: var(--bg-fon);
+  transition: color 0.3s ease;
 }
 
 .button-save {
@@ -340,16 +371,50 @@
   gap: 8px;
   block-size: 84px;
   inline-size: 306px;
+  position: relative;
+  overflow: hidden;
   background-color: var(--bg-header);
   outline: 2px solid var(--accent-color);
   margin: 52px auto 100px;
   padding: 15px 20.5px 15px 19.5px;
-
+  box-shadow: 0 0 transparent;
+  transition: box-shadow 0.3s ease;
 }
 
-.button-save__icon-floppy {
-  justify-self: center;
-  align-self: center;
+.button-save:focus {
+  box-shadow: none;
+}
+
+.button-save:hover .button__text {
+  position: relative;
+  z-index: 10;
+  color: var(--bg-fon);
+  transition: color 0.3s ease;
+}
+
+.button-save:hover .button__icon-floppy {
+  position: relative;
+  z-index: 10;
+  color: var(--bg-fon);
+  transition: color 0.3s ease;
+}
+
+.button-save:focus-visible {
+  box-shadow: 4px 4px var(--accent-color);
+  transition: box-shadow 0.3s ease;
+}
+
+.button-save::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg-like);
+  mix-blend-mode: difference;
+  translate: -100% 0%;
+}
+
+.button-save:hover::before {
+  animation: move 0.5s ease-in-out forwards;
 }
 
 .button__icon-floppy {
@@ -359,11 +424,11 @@
   align-self: flex-end;
 }
 
-.button-save__text {
-  font-family: 'Press Start 2P', Georgia, serif;
-  line-height: 12.6px;
-  align-self: center;
-  justify-self: center;
+.button-save:hover .button__icon-floppy {
+  position: relative;
+  z-index: 10;
+  color: var(--bg-fon);
+  transition: color 0.3s ease;
 }
 
 .modal[open] {
@@ -371,12 +436,10 @@
   gap: 30px;
   background-color: var(--bg-fon);
   color: var(--accent-color);
-  font-family: 'Press Start 2P', Georgia, serif;
+  font-family: "Press Start 2P", Georgia, serif;
   text-transform: uppercase;
   max-inline-size: 341px;
-  max-block-size: 195px;
   padding: 30px 40px;
-  border: 2px solid var(--accent-color);
 }
 
 .modal::backdrop {
@@ -389,16 +452,54 @@
   gap: 20px;
 }
 
+.button-save__icon-floppy {
+  justify-self: center;
+  align-self: center;
+}
+
 .modal__title {
   font-size: 14px;
   line-height: 21px;
 }
 
 .modal .close {
-  inline-size: 257px;
+  position: relative;
+  overflow: hidden;
+  inline-size: 100%;
   block-size: 38px;
   outline: 2px solid var(--accent-color);
   justify-self: center;
+  box-shadow: 0 0 transparent;
+  transition: box-shadow 0.3s ease;
+}
+
+.close:hover .button__text {
+  position: relative;
+  z-index: 10;
+  color: var(--bg-fon);
+  transition: color 0.3s ease;
+}
+
+.modal .close:focus {
+  box-shadow: none;
+}
+
+.modal .close:focus-visible {
+  box-shadow: 4px 4px var(--accent-color);
+  transition: box-shadow 0.3s ease;
+}
+
+.modal .close::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg-like);
+  mix-blend-mode: difference;
+  translate: -100% 0%;
+}
+
+.modal .close:hover::before {
+  animation: move 0.5s ease-in-out forwards;
 }
 
 @media (width > 376px) {
@@ -406,7 +507,7 @@
     grid-template-columns: min-content 1fr;
     block-size: 55px;
     inline-size: 335px;
-    margin: 50px auto 100px;
+    margin-top: 50px;
     padding: 18.5px 21px 18.5px 19px;
   }
 
@@ -417,14 +518,7 @@
 
   .modal[open] {
     max-inline-size: 357px;
-    max-block-size: 194px;
-    padding: 30px 30px;
-    border: 2px solid var(--accent-color);
+    padding-inline-end: 30px;
+    padding-inline-start: 30px;
   }
-
-  .modal .close {
-    inline-size: 293px;
-    block-size: 38px;
-  }
-
 }

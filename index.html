@@ -19,8 +19,8 @@
   <body class="page">
     <header class="header">
       <div class="header__block-title">
-        <h1 class="header__title">&lt;/HTML&gt;</h1>
-        <h2 class="header__subtitle">закрывающий тег</h2>
+        <p class="header__title">&lt;/HTML&gt;</p>
+        <h1 class="header__subtitle">закрывающий тег</h1>
       </div>
       <nav class="theme-menu header__theme-menu">
         <!-- Не меняйте разметку этого списка, иначе скрипты перестанут работать -->
@@ -538,7 +538,6 @@
       </section>
       <button 
         class="button-save"
-        type="button"
         onclick="window['save-on-disk'].showModal();"
         aria-controls="save-on-disk"
       >
@@ -547,7 +546,7 @@
             <use href="./svg/floppy.svg#floppy"></use>
           </svg>
         </span>
-        <span class="button-save__text">Сохранить на память</span>
+        <span class="button__text">Сохранить на память</span>
       </button>
       <dialog class="modal" id="save-on-disk">
         <div class="modal__container">
@@ -563,7 +562,7 @@
             class="close"
           >
             <span class="visually-hidden">Закрыть окно</span>
-            ОК
+            <span class="button__text">ОК</span>
           </button>
         </form>
       </dialog>

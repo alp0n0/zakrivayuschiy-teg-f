@@ -17,8 +17,8 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-family: 'Inter-Variable', Aria, sans-serif;
-  font-variation-settings: 'wght' var(--wgth-text);
+  font-family: "Inter-Variable", Aria, sans-serif;
+  font-variation-settings: "wght" var(--wgth-text);
   background-image: var(--gradient-fon);
   background-attachment: fixed;
   background-color: var(--bg-fon);
@@ -136,7 +136,7 @@
 
 .card__header {
   font-size: 18px;
-  font-variation-settings: 'wght' var(--wgth-title);
+  font-variation-settings: "wght" var(--wgth-title);
   line-height: 21.78px;
   padding: 4px 10px 6px;
   border-bottom: 2px solid var(--accent-color);
@@ -422,13 +422,6 @@
   inline-size: 28px;
   justify-self: center;
   align-self: flex-end;
-}
-
-.button-save:hover .button__icon-floppy {
-  position: relative;
-  z-index: 10;
-  color: var(--bg-fon);
-  transition: color 0.3s ease;
 }
 
 .modal[open] {

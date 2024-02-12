@@ -233,7 +233,7 @@
   inline-size: 39px;
   block-size: 38px;
   align-self: center;
-  outline: none;
+  outline: 2px solid transparent;
   transition: outline 0.3s ease;
 }
 
@@ -330,7 +330,6 @@
 }
 
 .card__like-button:focus {
-  outline: none;
   box-shadow: none;
 }
 
